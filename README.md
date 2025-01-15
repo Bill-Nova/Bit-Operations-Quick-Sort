@@ -1,1 +1,3 @@
 There is a bug in the code but I am too lazy to fix it
+
+I suspect the worst case is O NLOGN, but it is 3 times slower than quick sort when the random number range is small, and 30% slower when the random number range is large.......
