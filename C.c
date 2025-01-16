@@ -13,7 +13,7 @@ int main(){
 	int Sort_Data_MAX_Next=1;
 	int Compare;
 	unsigned int Bit=1;
-	Bit=Bit<<30;
+	Bit=Bit<<31;
 	int Counter=0;
 	int Counter_MAX;
 //-------------------------
