@@ -43,13 +43,13 @@ GOTO_Sort_ON:
 	Sort_Data_Counter++;
 	Counter_MAX=Sort_Data[Sort_Data_Counter];
 	if(Counter_MAX==Counter){
+		if(Sort_Data_MAX_Next==Sort_Data_MAX){
+			Sort_Data_MAX=Sort_Data_MAX-2;
+		}
 		Sort_Data[Sort_Data_Counter]=Sort_Data[Sort_Data_MAX_Next];
 		Sort_Data_Counter--;
 		Sort_Data_MAX_Next--;
 		Sort_Data[Sort_Data_Counter]=Sort_Data[Sort_Data_MAX_Next];
-		if(Sort_Data_MAX_Next==Sort_Data_MAX){
-			Sort_Data_MAX=Sort_Data_MAX-2;
-		}
 		goto GOTO_Sort_ON;
 	}
 //--------------------------
