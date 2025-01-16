@@ -50,20 +50,27 @@ Sort_Loop:
 		Add[Counter_MAX]=Compare;
 		Counter_MAX--;
 		if(Counter==Counter_MAX){
-			if(Add[Counter_MAX]&Bit){
-				Sort_Data_MAX_Next++;
-				Sort_Data[Sort_Data_MAX_Next]=Counter_MAX;
-				Sort_Data_MAX_Next++;
-				Sort_Data[Sort_Data_MAX_Next]=Sort_Data[Sort_Data_Counter];
-				Sort_Data[Sort_Data_Counter]=Counter_MAX-1;
+			if(Sort_Data[Sort_Data_Counter-1]==Counter_MAX){
+				Sort_Data[Sort_Data_Counter]=Counter_MAX;
+				Sort_Data_Counter--;
+				Sort_Data[Sort_Data_Counter]=Sort_Data[Sort_Data_Counter];
 				goto Min_Loop;
 			}else{
-				Sort_Data_MAX_Next++;
-				Sort_Data[Sort_Data_MAX_Next]=Counter_MAX+1;
-				Sort_Data_MAX_Next++;
-				Sort_Data[Sort_Data_MAX_Next]=Sort_Data[Sort_Data_Counter];
-				Sort_Data[Sort_Data_Counter]=Counter_MAX;
-				goto Min_Loop;
+				if(Add[Counter_MAX]&Bit){
+					Sort_Data_MAX_Next++;
+					Sort_Data[Sort_Data_MAX_Next]=Counter_MAX;
+					Sort_Data_MAX_Next++;
+					Sort_Data[Sort_Data_MAX_Next]=Sort_Data[Sort_Data_Counter];
+					Sort_Data[Sort_Data_Counter]=Counter_MAX-1;
+					goto Min_Loop;
+				}else{
+					Sort_Data_MAX_Next++;
+					Sort_Data[Sort_Data_MAX_Next]=Counter_MAX+1;
+					Sort_Data_MAX_Next++;
+					Sort_Data[Sort_Data_MAX_Next]=Sort_Data[Sort_Data_Counter];
+					Sort_Data[Sort_Data_Counter]=Counter_MAX;
+					goto Min_Loop;
+				}
 			}
 		}
 		goto Sort_Loop;
@@ -71,20 +78,27 @@ Sort_Loop:
 	Counter++;
 	if(Counter==Counter_MAX){
 		if(Sort_Data[Sort_Data_Counter]!=Counter_MAX){
-			if(Add[Counter_MAX]&Bit){
-				Sort_Data_MAX_Next++;
-				Sort_Data[Sort_Data_MAX_Next]=Counter_MAX;
-				Sort_Data_MAX_Next++;
-				Sort_Data[Sort_Data_MAX_Next]=Sort_Data[Sort_Data_Counter];
-				Sort_Data[Sort_Data_Counter]=Counter_MAX-1;
+			if(Sort_Data[Sort_Data_Counter-1]==Counter_MAX){
+				Sort_Data[Sort_Data_Counter]=Counter_MAX;
+				Sort_Data_Counter--;
+				Sort_Data[Sort_Data_Counter]=Sort_Data[Sort_Data_Counter];
 				goto Min_Loop;
 			}else{
-				Sort_Data_MAX_Next++;
-				Sort_Data[Sort_Data_MAX_Next]=Counter_MAX+1;
-				Sort_Data_MAX_Next++;
-				Sort_Data[Sort_Data_MAX_Next]=Sort_Data[Sort_Data_Counter];
-				Sort_Data[Sort_Data_Counter]=Counter_MAX;
-				goto Min_Loop;
+				if(Add[Counter_MAX]&Bit){
+					Sort_Data_MAX_Next++;
+					Sort_Data[Sort_Data_MAX_Next]=Counter_MAX;
+					Sort_Data_MAX_Next++;
+					Sort_Data[Sort_Data_MAX_Next]=Sort_Data[Sort_Data_Counter];
+					Sort_Data[Sort_Data_Counter]=Counter_MAX-1;
+					goto Min_Loop;
+				}else{
+					Sort_Data_MAX_Next++;
+					Sort_Data[Sort_Data_MAX_Next]=Counter_MAX+1;
+					Sort_Data_MAX_Next++;
+					Sort_Data[Sort_Data_MAX_Next]=Sort_Data[Sort_Data_Counter];
+					Sort_Data[Sort_Data_Counter]=Counter_MAX;
+					goto Min_Loop;
+				}
 			}
 		}
 		goto Min_Loop;
